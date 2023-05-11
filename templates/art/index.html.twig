@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row" style="display: flex; align-items: center; justify-content: center; margin-top: 150px;">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">List of Users</h5>
+<h2>Search A User !</h2>
+
+            <div class="sidebar-search">
+
+                <div class="input-group custom-search-form">
+
+                    <input type="text" id="search" class="form-control" placeholder="Search here">
+                </div>
+
+                    <!-- Table with stripped rows -->
+                    <table id="user-table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Sujet</th>
+                                <th>Description</th>
+                                
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for article in articles %}
+                                <tr>
+                                  <td>{{ article.id }}</td>
+                                    <td>{{ article.etat }}</td>
+                                    <td>{{ article.sujet }}</td>
+                                  
+                                    
+                                   
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <!-- End table with stripped rows -->
+                </div>
+            </div>
+        </div>
+    </div>
+﻿
+
+
+    
+
+
+
+            <script type="text/javascript">
+           jQuery(document).ready(function() {
+    var searchRequest = null;
+    $("#search").keyup(function() {
+        var minlength = 1;
+        var that = this;
+        var value = $(this).val();
+        var tableBody = $("#user-table tbody").html('');
+        if (value.length >= minlength ) {
+            if (searchRequest != null)
+                searchRequest.abort();
+            searchRequest = $.ajax({
+                type: "GET",
+                url: "{{ path('ajax_search') }}",
+                data: {
+                    'q' : value
+                },
+                dataType: "text",
+                success: function(msg){
+                    //we need to check if the value is the same
+                    if (value===$(that).val()) {
+                        var result = JSON.parse(msg);
+                        $.each(result, function(key, arr) {
+                            $.each(arr, function(id, value) {
+    if (key === 'article') {
+    if (id !== 'error') {
+      
+        tableBody.append('<tr><td>'+value[0]+'</td><td>'+value[1]+'</td><td>'+value[2]+'</td></tr>');
+    } else {
+        tableBody.append('<tr><td colspan="4" class="errorTd">'+value+'</td></tr>');
+    }
+}
+
+                            });
+                        });
+                    }
+                }
+            });
+        }
+    });
+});
+
+            </script>
+            
+
+{% endblock %}

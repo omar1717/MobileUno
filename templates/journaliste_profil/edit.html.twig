@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Edit Profil</h1>
+            <a href="{{ path('app_journaliste_profil') }}" class="btn btn-primary"><i class="bi bi-arrow-left"></i> retour</a>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+                <div class="col-md-8 col-lg-9">
+                   <img src="omar.jpg" alt="Profile" width="20%">
+                    <div class="pt-2">
+                        <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                        <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                    </div>
+                </div>
+            </div>
+            {{ form_start(f) }}
+            <div class="row mb-3">
+                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Name</label>
+                <div class="col-md-8 col-lg-9">
+                    {{ form_widget(f.nom) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="company" class="col-md-4 col-lg-3 col-form-label">Surname</label>
+                <div class="col-md-8 col-lg-9">
+                    {{ form_widget(f.prenom) }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="email" class="col-md-4 col-lg-3 col-form-label">Email</label>
+                <div class="col-md-8 col-lg-9">
+                    {{ form_widget(f.email) }}
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+            {{ form_end(f) }}
+        </div>
+    </div>
+</div>
+{% endblock %}
