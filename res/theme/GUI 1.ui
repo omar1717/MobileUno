@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component type="Form" name="GUI 1" cloudDestinationProperty="GUI 1" >
+  <component type="ImageViewer" name="ImageViewer" cloudDestinationProperty="ImageViewer" >
+    <custom name="image" type="com.codename1.ui.Image" value="minecraft.jpg" />
+  </component>
+  <component type="ImageViewer" name="ImageViewer1" cloudDestinationProperty="ImageViewer1" >
+  </component>
+</component>

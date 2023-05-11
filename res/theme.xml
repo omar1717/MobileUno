@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="dmc5.jpg"  />
+    <image name="fifa.jpg"  />
+    <ui name="GUI 1" />
+    <image name="icons8-back-arrow-30.png"  />
+    <image name="icons8-back-arrow-90.png"  />
+    <image name="minecraft.jpg"  />
+    <image name="nfs.jpg"  />
+    <image name="rdr2.jpg"  />
+    <image name="re8.jpg"  />
+    <theme name="Theme">
+        <val key="@includeNativeBool" value="true" />
+    </theme>
+    <image name="un.jpg"  />
+</resource>
